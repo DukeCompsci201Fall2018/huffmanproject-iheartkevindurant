@@ -1,4 +1,4 @@
-
+//Will Schmidt
 /**
  * Although this class has a history of several years,
  * it is starting from a blank-slate, new and clean implementation
@@ -64,5 +64,17 @@ public class HuffProcessor {
 			if (val == -1) break;
 			out.writeBits(BITS_PER_WORD, val);
 		}
+		HuffNode root = readTreeHeader(in);
+		readCompressedBits(root, in, out);
+	}
+
+	private void readCompressedBits(HuffNode root, BitInputStream in, BitOutputStream out) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private HuffNode readTreeHeader(BitInputStream in) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
