@@ -69,12 +69,16 @@ public class HuffProcessor {
 	}
 
 	private void readCompressedBits(HuffNode root, BitInputStream in, BitOutputStream out) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
 	private HuffNode readTreeHeader(BitInputStream in) {
-		// TODO Auto-generated method stub
+		int internal = in.readBits(1);
+		if(internal != 0) {
+			throw new HuffException
+		}
+		HuffNode ret = new HuffNode(,0,null,null);
 		return null;
 	}
 }
