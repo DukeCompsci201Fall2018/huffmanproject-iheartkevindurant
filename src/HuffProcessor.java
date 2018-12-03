@@ -1,6 +1,7 @@
 import java.util.PriorityQueue;
 
 //Will Schmidt
+//Michael Williams
 /**
  * Although this class has a history of several years,
  * it is starting from a blank-slate, new and clean implementation
@@ -32,6 +33,7 @@ public class HuffProcessor {
 	
 	public HuffProcessor(int debug) {
 		myDebugLevel = debug;
+		System.out.println("ligma");
 	}
 
 	/**
