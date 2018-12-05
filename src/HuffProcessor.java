@@ -1,6 +1,7 @@
 import java.util.PriorityQueue;
 
 //Will Schmidt
+//Michael Williams
 /**
  * Although this class has a history of several years,
  * it is starting from a blank-slate, new and clean implementation
@@ -32,6 +33,7 @@ public class HuffProcessor {
 	
 	public HuffProcessor(int debug) {
 		myDebugLevel = debug;
+		System.out.println("ligma");
 	}
 
 	/**
@@ -85,7 +87,7 @@ public class HuffProcessor {
 	    codehelper(encodings, root, "");
 	    return encodings;
 	}
-	public void codehelper(String[] codings, HuffNode sub, String currPath) {
+	private void codehelper(String[] codings, HuffNode sub, String currPath) {
 		if(sub == null) {
 			return;
 		}
@@ -107,7 +109,7 @@ public class HuffProcessor {
 	PriorityQueue<HuffNode> pq = new PriorityQueue<>();
 
 
-	for(int i = 0; i < 256; i++) {
+	for(int i = 0; i < ALPH_SIZE + 1; i++) {
 	    pq.add(new HuffNode(i,freq[i],null,null));
 	}
 	 
