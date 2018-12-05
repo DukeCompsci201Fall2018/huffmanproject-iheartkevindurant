@@ -74,6 +74,9 @@ public class HuffProcessor {
 		else if(root.myValue != -1) {
 		out.writeBits(1, 1);
 		out.writeBits(9, root.myValue);
+		if(myDebugLevel == DEBUG_HIGH) {
+			System.out.printf("Value %d written to tree header\n", root.myValue);
+		}
 		}
 		}
 
@@ -88,6 +91,9 @@ public class HuffProcessor {
 		}
 		if(sub.myLeft == null && sub.myRight == null) {
 			codings[sub.myValue] = currPath;
+			if(myDebugLevel == DEBUG_HIGH) {
+				System.out.printf("Coding %s created for tree\n", currPath);
+			}
 			return;
 		}
 		codehelper(codings, sub.myLeft, currPath + "0");
@@ -182,13 +188,17 @@ public class HuffProcessor {
 			throw new HuffException("Error in reading tree header");
 		}
 		if(leafroot == 0) {
-		HuffNode left = readTreeHeader(in);
-		HuffNode right = readTreeHeader(in);
-		 return new HuffNode(0,0, left, right);
+			HuffNode left = readTreeHeader(in);
+			HuffNode right = readTreeHeader(in);
+			return new HuffNode(0,0, left, right);
 		}
 		else {
 			int val = in.readBits(BITS_PER_WORD + 1);
+			if(myDebugLevel == DEBUG_HIGH) {
+				System.out.printf("Tree value %d read from header\n", val);
+			}
 			return new HuffNode(val, 0, null, null);
+
 		}
 	}
 }
